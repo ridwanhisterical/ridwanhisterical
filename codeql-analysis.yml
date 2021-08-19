@@ -1,0 +1,36 @@
+<properties>
+  <sonar.organization>ridwanhisterical</sonar.organization>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+</properties>
+
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      ...
+      <plugin>
+        <artifactId>maven-plugin-plugin</artifactId>
+        <version>2.3</version>
+        <configuration>
+          ...
+          <goalPrefix>somePrefix</goalPrefix>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+
+SonarScanner.MSBuild.exe begin \
+  /o:"ridwanhisterical" \
+  /k:"ridwanhisterical_ridwanhisterical" \
+  /d:sonar.host.url="https://sonarcloud.io"
+<insert_your_build_command>
+SonarScanner.MSBuild.exe end
+
+
+sonar-scanner.bat \
+  -D"sonar.organization=ridwanhisterical" \
+  -D"sonar.projectKey=ridwanhisterical_ridwanhisterical" \
+  -D"sonar.sources=." \
+  -D"sonar.host.url=https://sonarcloud.io"
